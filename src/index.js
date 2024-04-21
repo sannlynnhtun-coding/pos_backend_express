@@ -1,8 +1,9 @@
 import express from "express";
-import protductCategoriesRouter from "../src/routes/productCategories.mjs";
-const bodyParser = require("body-parser");
-const cors = require("cors");
-const helmet = require("helmet");
+import productCategoriesRouter from "./routes/productCategories.js";
+
+import bodyParser from "body-parser";
+import cors from "cors";
+import helmet from "helmet";
 
 const app = express();
 
@@ -14,7 +15,8 @@ app.use(cors());
 app.use(helmet());
 
 // Routers
-app.use(protductCategoriesRouter);
+app.use("/product-categories", productCategoriesRouter);
+// app.use(productCategoriesRouter);
 
 // eslint-disable-next-line no-undef
 const PORT = process.env.PORT || 3500;
